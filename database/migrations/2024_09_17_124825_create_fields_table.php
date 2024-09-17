@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+
     public function up(): void
     {
         Schema::create('fields', function (Blueprint $table) {
@@ -17,14 +15,11 @@ return new class extends Migration
             $table->string('type');
             $table->string('label');
             $table->boolean('required')->default(false);
-            $table->json('options')->nullable(); // Pour les champs de type select par exemple
+            $table->json('options')->nullable();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('fields');

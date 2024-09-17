@@ -14,7 +14,6 @@ class FormController extends Controller
      */
     public function index()
     {
-        // Récupérer tous les formulaires
         $forms = Form::all();
 
         return view('forms.index', compact('forms'));
