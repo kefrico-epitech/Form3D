@@ -22,3 +22,5 @@ Route::get('forms', [FormController::class, 'index'])->name('forms.index');
 Route::get('forms/create', [FormController::class, 'create'])->name('forms.create');
 Route::post('forms/store', [FormController::class, 'store'])->name('forms.store');
 Route::get('forms/{form}', [FormController::class, 'show'])->name('forms.show');
+Route::delete('forms/{form}', [FormController::class, 'destroy'])->name('forms.destroy');
+

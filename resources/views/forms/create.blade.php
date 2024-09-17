@@ -122,7 +122,6 @@
 
         fieldIndex++;
     });
-
 </script>
 
 @endsection
