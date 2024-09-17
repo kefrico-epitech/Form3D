@@ -61,6 +61,9 @@
                 <select name="fields[${fieldIndex}][type]" class="form-select">
                     <option value="text">Texte</option>
                     <option value="email">Email</option>
+                    <option value="password">Mot de passe</option>
+                    <option value="number">Numéro</option>
+                    <option value="phone">Téléphone</option>
                     <option value="textarea">Zone de texte</option>
                     <option value="select">Liste déroulante</option>
                     <option value="checkbox">Case à cocher</option>
@@ -122,6 +125,7 @@
 
         fieldIndex++;
     });
+
 </script>
 
 @endsection

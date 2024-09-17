@@ -6,7 +6,9 @@
     <form>
         @foreach($fields as $field)
         <div class="mb-3">
+            @if($field->type !== 'checkbox' && $field->type !== 'button')
             <label>{{ $field->label }} @if($field->required) * @endif</label>
+            @endif
 
             <!-- Gestion des différents types de champs -->
             @if($field->type == 'text')
@@ -19,7 +21,7 @@
             <textarea class="form-control" @if($field->required) required @endif></textarea>
 
             @elseif($field->type == 'select')
-            <select class="form-control">
+            <select class="form-control" @if($field->required) required @endif>
                 @foreach(json_decode($field->options, true) as $option)
                 <option value="{{ $option }}">{{ $option }}</option>
                 @endforeach
@@ -32,7 +34,16 @@
             </div>
 
             @elseif($field->type == 'button')
-            <button type="button" class="btn btn-primary">{{ $field->label }}</button>
+            <button type="submit" class="btn btn-primary">{{ $field->label }}</button>
+
+            @elseif($field->type == 'password')
+            <input type="password" class="form-control" @if($field->required) required @endif>
+
+            @elseif($field->type == 'number')
+            <input type="number" class="form-control" @if($field->required) required @endif>
+
+            @elseif($field->type == 'phone')
+            <input type="tel" class="form-control" @if($field->required) required @endif>
 
             @endif
         </div>
